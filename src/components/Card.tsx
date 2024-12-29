@@ -1,8 +1,17 @@
 const Card = () => {
     return (
         <div className="px-4 md:px-10 py-20 flex flex-col gap-20">
-            <div>
-                hello
+            <div
+                className="mb-8 md:mb-0 rounded-3xl bg-cover bg-center px-20 pt-32 pb-10 flex justify-between"
+                style={{ backgroundImage: "url('/images/yoga.avif')" }}
+            >
+                <div className="bg-white bg-opacity-10 p-10 rounded-3xl text-white">
+                    <span>Recommended</span>
+                    <p className="text-4xl mb-6 max-w-md font-semibold">
+                        Get access to the entire content and transform your life.
+                    </p>
+                    <button className="bg-white rounded text-black px-5 py-2 hover:bg-gray-50 capitalize">Start you free trial</button>
+                </div>
             </div>
             <div className="mb-8 md:mb-0 rounded-3xl bg-[#2d2c2f] text-white p-5 flex justify-between">
                 <div className="p-10">
