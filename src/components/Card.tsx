@@ -1,6 +1,9 @@
 const Card = () => {
     return (
-        <div className="px-4 md:px-10 py-20 ">
+        <div className="px-4 md:px-10 py-20 flex flex-col gap-20">
+            <div>
+                hello
+            </div>
             <div className="mb-8 md:mb-0 rounded-3xl bg-[#2d2c2f] text-white p-5 flex justify-between">
                 <div className="p-10">
                     <h2 className="text-white text-4xl font-bold mb-4">Download the app</h2>
