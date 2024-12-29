@@ -6,7 +6,7 @@ const Herosection = () => {
                 style={{ backgroundImage: "url('/images/heroSection.jpg')" }}
             />
             <div className="absolute inset-0 bg-black bg-opacity-20" />
-            <div className="relative z-10 h-full flex pt-16 pl-16">
+            <div className="relative z-10 h-full flex items-end lg:items-start lg:pt-16 lg:pl-16 pt-4 pl-4 pb-4">
                 <div className="max-w-xl">
                     <h1 className="text-white font-bold">
                         <div className="text-6xl leading-tight">Welcome to</div>

@@ -1,19 +1,93 @@
-const Stats = () => {
+import React, { useState, useEffect, useRef } from 'react';
+
+const easeInOutQuad = (t: number) => {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+};
+
+const NumberCounter: React.FC<{ end: number; duration: number; isAnimating: boolean }> = ({ end, duration, isAnimating }) => {
+    const [count, setCount] = useState<number>(0);
+
+    useEffect(() => {
+        if (!isAnimating) return;
+
+        let startTime: number | null = null;
+        let animationFrame: number;
+
+        const animate = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const progress = timestamp - startTime;
+
+            const percentage = Math.min(progress / duration, 1);
+            const easedPercentage = easeInOutQuad(percentage);
+            const currentCount = Math.floor(end * easedPercentage);
+
+            setCount(currentCount);
+
+            if (percentage < 1) {
+                animationFrame = requestAnimationFrame(animate);
+            }
+        };
+
+        animationFrame = requestAnimationFrame(animate);
+
+        return () => {
+            if (animationFrame) {
+                cancelAnimationFrame(animationFrame);
+            }
+        };
+    }, [end, duration, isAnimating]);
+
     return (
-        <div className="w-full border-b">
-            <div className="flex justify-between items-center text-center max-w-7xl mx-auto px-4 py-8">
-                <div>
-                    <h2 className="text-5xl font-bold mb-2">190+</h2>
-                    <p className="text-gray-600">Countries</p>
-                </div>
-                <div>
-                    <h2 className="text-5xl font-bold mb-2">1,000+</h2>
-                    <p className="text-gray-600">On-Demand Classes</p>
-                </div>
-                <div>
-                    <h2 className="text-5xl font-bold mb-2">100K</h2>
-                    <p className="text-gray-600">Members</p>
-                </div>
+        <div className="relative text-5xl font-bold select-none flex flex-wrap items-center justify-center w-full">
+            {count.toLocaleString()}
+            <span className='text-4xl absolute top-0 -right-6'>+</span>
+        </div>
+    );
+};
+
+const Stats = () => {
+    const [isVisible, setIsVisible] = useState<boolean>(false);
+    const componentRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const [entry] = entries;
+                setIsVisible(entry.isIntersecting);
+            },
+            {
+                threshold: 0.1,
+            }
+        );
+
+        const currentRef = componentRef.current;
+
+        if (currentRef) {
+            observer.observe(currentRef);
+        }
+
+        return () => {
+            if (currentRef) {
+                observer.unobserve(currentRef);
+            }
+        };
+    }, []);
+
+    const statsData = [
+        { title: 'Countries', value: 190 },
+        { title: 'On-Demand Classes', value: 1000 },
+        { title: 'Members', value: 100000 },
+    ];
+
+    return (
+        <div ref={componentRef} className="w-full border-b">
+            <div className="flex flex-wrap justify-between items-center text-center max-w-7xl mx-auto px-4 py-8 gap-6">
+                {statsData.map((stat, index) => (
+                    <div key={index} className="flex flex-col items-center">
+                        <NumberCounter end={stat.value} duration={2000} isAnimating={isVisible} />
+                        <p className="text-gray-600">{stat.title}</p>
+                    </div>
+                ))}
             </div>
         </div>
     );
