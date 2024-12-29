@@ -3,7 +3,7 @@ const Herosection = () => {
         <div className="relative h-[800px] bg-green-50">
             <div
                 className="absolute inset-0 bg-cover bg-center h-full w-full"
-                style={{ backgroundImage: "url('src/assets/images/heroSection.jpg')" }}
+                style={{ backgroundImage: "url('/images/heroSection.jpg')" }}
             />
             <div className="absolute inset-0 bg-black bg-opacity-20" />
             <div className="relative z-10 h-full flex pt-16 pl-16">

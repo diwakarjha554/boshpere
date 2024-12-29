@@ -4,25 +4,44 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const instructors = [
     {
         name: 'Preetika Bhatnagar',
-        image: '/api/placeholder/400/500',
+        image: '/images/inst1.png',
         alt: 'Instructor in pink outfit doing yoga pose by pool',
     },
     {
         name: 'Samarthya Bhatnagar',
-        image: '/api/placeholder/400/500',
+        image: '/images/inst2.png',
         alt: 'Instructor in black outfit doing warrior pose outdoors',
     },
     {
         name: 'Diana',
-        image: '/api/placeholder/400/500',
+        image: '/images/inst3.png',
         alt: 'Instructor in pink outfit doing side plank pose in park',
     },
     {
         name: 'Herkeesh',
-        image: '/api/placeholder/400/500',
+        image: '/images/inst4.png',
         alt: 'Instructor doing dancer pose on beach',
     },
-    
+    {
+        name: 'Preetika Bhatnagar',
+        image: '/images/inst1.png',
+        alt: 'Instructor in pink outfit doing yoga pose by pool',
+    },
+    {
+        name: 'Samarthya Bhatnagar',
+        image: '/images/inst2.png',
+        alt: 'Instructor in black outfit doing warrior pose outdoors',
+    },
+    {
+        name: 'Diana',
+        image: '/images/inst3.png',
+        alt: 'Instructor in pink outfit doing side plank pose in park',
+    },
+    {
+        name: 'Herkeesh',
+        image: '/images/inst4.png',
+        alt: 'Instructor doing dancer pose on beach',
+    },
 ];
 
 const InstructorsCarousel = () => {
@@ -39,7 +58,7 @@ const InstructorsCarousel = () => {
     };
 
     return (
-        <div className="w-full  mx-auto px-4 py-8">
+        <div className="w-full  mx-auto px-4 md:px-10 py-20">
             <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold mb-2">Meet Your Instructors</h2>
                 <p className="text-gray-600 mb-4">

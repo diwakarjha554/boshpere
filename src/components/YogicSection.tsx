@@ -51,7 +51,10 @@ const FeatureCards = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {features.map((feature, index) => (
-                        <div key={index} className="bg-gray-50 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow text-center">
+                        <div
+                            key={index}
+                            className="bg-gray-50 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow text-center"
+                        >
                             <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
                             <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
                         </div>
@@ -64,7 +67,7 @@ const FeatureCards = () => {
 
 const YogicSection = () => {
     return (
-        <div className="w-full">
+        <div className="w-full px-4 md:px-10 py-20">
             <Stats />
             <FeatureCards />
         </div>

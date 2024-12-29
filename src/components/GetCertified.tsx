@@ -1,6 +1,6 @@
 const GetCertified = () => {
     return (
-        <div className="flex flex-col lg:flex-row items-center justify-between  mx-auto p-8 gap-12 w-full">
+        <div className="flex flex-col lg:flex-row items-center justify-around  mx-auto px-4 md:px-10 py-20 gap-12 w-full bg-gray-100">
             {/* Left Content */}
             <div className="flex-1 max-w-xl">
                 <h1 className="text-4xl font-bold mb-6">
@@ -21,7 +21,7 @@ const GetCertified = () => {
             {/* Right Content - Phone Image */}
             <div className="flex-1 max-w-md">
                 <img
-                    src="src/assets/images/image2.png"
+                    src="/images/image2.png"
                     alt="Bodsphere mobile app interface"
                     className="w-full h-auto transform rotate-6"
                 />
